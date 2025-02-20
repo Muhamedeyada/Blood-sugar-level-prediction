@@ -1,0 +1,68 @@
+<div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-white shadow rounded-lg">
+        <div class="px-6 py-8">
+          <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">
+            Your Personalized Diet Plan
+          </h2>
+
+          <div class="space-y-8">
+            <!-- General Guidelines -->
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">General Guidelines</h3>
+              <div class="bg-blue-50 rounded-lg p-4">
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                  <li *ngFor="let guideline of dietPlan.guidelines">
+                    {{ guideline }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Meal Plan -->
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">Daily Meal Plan</h3>
+              <div class="space-y-6">
+                <div *ngFor="let meal of dietPlan.meals" class="bg-gray-50 rounded-lg p-6">
+                  <h4 class="text-lg font-medium text-gray-900 mb-3">{{ meal.name }}</h4>
+                  <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li *ngFor="let item of meal.items">
+                      {{ item }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Additional Recommendations -->
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">Additional Recommendations</h3>
+              <div class="bg-green-50 rounded-lg p-4">
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                  <li *ngFor="let rec of dietPlan.recommendations">
+                    {{ rec }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex justify-center space-x-4">
+            <button
+              (click)="downloadPlan()"
+              class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+            >
+              Download Plan
+            </button>
+            
+            <button
+              (click)="goBack()"
+              class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+            >
+              Back to Results
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
